@@ -2,47 +2,64 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer">
 <title>ALPR Research</title>
 <style>
-:root{--bg:#0f172a;--fg:#f8fafc;--card:#1e293b;--border:#334155;--accent:#3b82f6;--red:#ef4444}
-body{font-family:system-ui,sans-serif;background:var(--bg);color:var(--fg);padding:2rem}
+:root{--bg:#0f172a;--fg:#f8fafc;--card:#1e293b;--border:#334155;--accent:#3b82f6;--red:#ef4444;--muted:#94a3b8}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:system-ui,sans-serif;background:var(--bg);color:var(--fg);padding:1rem;line-height:1.6}
 .container{max-width:900px;margin:0 auto}
-.hero{text-align:center;padding:2rem;border-bottom:1px solid var(--border);margin-bottom:2rem}
-h1{font-size:2.5rem;background:linear-gradient(135deg,var(--accent),#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin:2rem 0}
+.hero{text-align:center;padding:2rem 0;border-bottom:1px solid var(--border);margin-bottom:2rem}
+h1{font-size:clamp(1.5rem,5vw,2.5rem);background:linear-gradient(135deg,var(--accent),#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{color:var(--muted);margin-top:0.5rem;font-size:0.9rem}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem;margin:2rem 0}
 .stat{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1rem;text-align:center}
 .stat .num{font-size:1.5rem;font-weight:600;color:var(--accent)}
-.card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1.5rem;margin-bottom:1rem}
-table{width:100%;border-collapse:collapse;font-size:0.875rem;margin-top:1rem}
+.stat .label{color:var(--muted);font-size:0.8rem}
+.card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1.5rem;margin-bottom:1rem;overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:0.875rem;min-width:600px}
 th,td{padding:0.75rem;border-bottom:1px solid var(--border);text-align:left}
-th{color:#94a3b8;font-size:0.75rem;text-transform:uppercase}
+th{color:var(--muted);font-size:0.75rem;text-transform:uppercase}
 .badge{display:inline-block;padding:0.2rem 0.5rem;border-radius:999px;font-size:0.75rem;background:rgba(239,68,68,0.1);color:#f87171}
-a{color:var(--accent)}footer{text-align:center;padding:2rem;color:#64748b;margin-top:2rem;border-top:1px solid var(--border)}
+.source{color:var(--muted);font-size:0.75rem;margin-top:1rem}
+a{color:var(--accent)}footer{text-align:center;padding:2rem;color:var(--muted);font-size:0.875rem;margin-top:2rem;border-top:1px solid var(--border)}
+@media(max-width:600px){body{padding:0.5rem}.card{padding:1rem}}
 </style>
 </head>
 <body>
 <div class="container">
-<div class="hero"><h1>ALPR Surveillance Dashboard</h1></div>
-<div class="stats">
-<div class="stat"><div class="num">120K</div><div>Cameras</div></div>
-<div class="stat"><div class="num">6K+</div><div>Communities</div></div>
-<div class="stat"><div class="num">15</div><div>CVEs</div></div>
-<div class="stat"><div class="num">$7.5B</div><div>Valuation</div></div>
+<div class="hero">
+<h1>ALPR Surveillance Dashboard</h1>
+<p>Last updated: September 2026</p>
 </div>
-<div class="card"><h2>🔒 Critical Vulnerabilities</h2>
-<table><thead><tr><th>CVE</th><th>Component</th><th>Severity</th></tr></thead>
+<div class="stats">
+<div class="stat"><div class="num">120K</div><div class="label">Cameras</div></div>
+<div class="stat"><div class="num">6K+</div><div class="label">Communities</div></div>
+<div class="stat"><div class="num">15</div><div class="label">CVEs</div></div>
+<div class="stat"><div class="num">$7.5B</div><div class="label">Valuation</div></div>
+</div>
+<div class="card">
+<h2>🔒 Critical Vulnerabilities</h2>
+<table>
+<thead><tr><th>CVE</th><th>Component</th><th>Severity</th></tr></thead>
 <tbody>
 <tr><td>CVE-2025-47822</td><td>Debug interface</td><td><span class="badge">9.8 Critical</span></td></tr>
 <tr><td>CVE-2025-59403</td><td>Admin endpoints</td><td><span class="badge">9.8 Critical</span></td></tr>
 <tr><td>CVE-2025-59407</td><td>Hard-coded password</td><td><span class="badge">9.8 Critical</span></td></tr>
-</tbody></table></div>
-<div class="card"><h2>🛠️ Community Tools</h2>
+</tbody>
+</table>
+<p class="source">Sources: <a href="https://nvd.nist.gov">NVD</a>, <a href="https://cve.mitre.org">MITRE</a>, Independent Security Research</p>
+</div>
+<div class="card">
+<h2>🛠️ Community Tools</h2>
 <p><a href="https://deflock.me">DeFlock</a> — Crowdsourced ALPR map</p>
 <p><a href="https://haveibeenflocked.com">Have I Been Flocked?</a> — Search audit logs</p>
 <p><a href="https://atlasofsurveillance.org">EFF Atlas</a> — Surveillance database</p>
 </div>
-<footer><p>Data: ACLU, EFF, CISA, NVD | No tracking | Educational only</p></footer>
+<footer>
+<p>Data: ACLU, EFF, CISA, NVD | <a href="https://github.com">Source</a> | CC0 License</p>
+</footer>
 </div>
 </body>
 </html>
